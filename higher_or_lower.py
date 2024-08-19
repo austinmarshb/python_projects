@@ -1,6 +1,6 @@
- # from art import logo, vs
- # from game_data import data
- # import random
+# from art import logo, vs
+# from game_data import data
+# import random
 
 
 def format_data(account):
@@ -14,8 +14,10 @@ def format_data(account):
 game_on = True
 
 print(logo)
+choice_a = random.choice(data)
+choice_b = random.choice(data)
 while game_on:
-    choice_a = random.choice(data)
+    format_data(choice_a)
     choice_b = random.choice(data)
     print(f"Compare CHOICE A: {format_data(choice_a)}.")
     print(vs)
@@ -23,8 +25,10 @@ while game_on:
     user_choice = input("Who has more instagram followers? Type 'A' or 'B'\n").lower()
     if user_choice == 'a' and choice_a["follower_count"] > choice_b["follower_count"]:
         print("You got it! Here's another...")
+        choice_a = choice_a
     elif user_choice == 'b' and choice_b["follower_count"] > choice_a["follower_count"]:
         print("You got it! Here's another...")
+        choice_a = choice_b
     else:
         print("Sorry, wrong answer!")
         game_on = False
